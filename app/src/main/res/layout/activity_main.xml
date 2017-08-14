@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="me.baymallow.malangtable.MainActivity"
+    tools:ignore="ButtonStyle">
+
+    <LinearLayout
+        android:id="@+id/main_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/random_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NestedWeights">
+
+        <LinearLayout
+            android:id="@+id/period_1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@+id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_lunch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/div_height"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:id="@+id/period_5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_6"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_7"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_8"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_9"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_dinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/div_height"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:id="@+id/period_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/period_11"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/row_height"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@id/mon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/tue"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/wed"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/thu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+
+            <Button
+                android:id="@id/fri"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:textSize="@dimen/text_size" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/random_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="@string/random_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/renew_timetable"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="RtlHardcoded" />
+
+    <Button
+        android:id="@+id/renew_timetable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/renew_timetable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/random_color"
+        tools:ignore="RtlHardcoded" />
+
+</android.support.constraint.ConstraintLayout>
