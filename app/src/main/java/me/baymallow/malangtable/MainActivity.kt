@@ -14,7 +14,9 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
     lateinit var container: LinearLayout
     var rows: ArrayList<Array<Button>> = ArrayList(0)
+    var data: ArrayList<Subject> = ArrayList(0)
     lateinit var mPref: SharedPreferences
+    private var FIRST_ONSTART = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +50,33 @@ class MainActivity : AppCompatActivity() {
                     })
             val mDialog = mBuilder.create()
             mDialog.show()
+        } else if (mPref.getBoolean(CommonConstants.HAS_CHANGED_DATA, true) or FIRST_ONSTART) {
+            FIRST_ONSTART = false
+            mPref.edit().putBoolean(CommonConstants.HAS_CHANGED_DATA, false).apply()
+            var i = 0
+            val N = mPref.getInt(CommonConstants.NUMBER_OF_SUBJECT, 0)
+            while (i < N) {
+                val thisSubject = Subject.parseString(
+                        mPref.getString(CommonConstants.SUBJECT + i, ";;;;;;"))
+                val btnText = thisSubject.toBtnString()
+                for (classHour in thisSubject.getParsedClassHours()) {
+                    val classBtn = rows[classHour[0]][classHour[1]]
+                    classBtn.text = btnText
+                    assignColor(classBtn, thisSubject.colorCode)
+                    classBtn.setOnClickListener({
+                        onClickRouter(i)
+                    })
+                }
+                data.add(thisSubject)
+                i += 1
+            }
         }
+    }
+
+    private fun assignColor(btn: Button, colorCode: Int) {
+        val colors = CommonConstants.COLORS[colorCode]
+        btn.setBackgroundColor(colors[0])
+        btn.setTextColor(colors[1])
     }
 
     private fun resolveTimetableViews() {
@@ -78,5 +106,31 @@ class MainActivity : AppCompatActivity() {
     private fun gotoDownload() {
         val i = Intent(applicationContext, DownloadActivity::class.java)
         startActivity(i)
+    }
+
+    fun onClickRouter(i: Int) {
+        Toast.makeText(this, data[i].toString(), Toast.LENGTH_SHORT).show()
+        TODO("Create dialog for class info & color setting")
+    }
+}
+
+class Subject(val title: String, val place: String, val number: Int, val teacher: String, val classHours: String, val colorCode: Int) {
+    companion object {
+        fun parseString(saved: String): Subject {
+            val split = saved.split(";")
+            return Subject(split[0], split[1], Integer.parseInt(split[2]), split[3], split[5], Integer.parseInt(split[6]))
+        }
+    }
+
+    override fun toString(): String {
+        return "$title;$place;$number;$teacher;$classHours;$colorCode"
+    }
+
+    fun getParsedClassHours(): List<List<Int>> {
+        return classHours.split("|").map { it.split(",").map { Integer.parseInt(it) } }
+    }
+
+    fun toBtnString(): String {
+        return "$title\n$place"
     }
 }
