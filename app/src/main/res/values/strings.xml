@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">MalangTable</string>
-    <string name="renew_timetable">Renew Timetable</string>
+    <string name="renew_timetable">Renew</string>
     <string name="random_color">Random Color</string>
     <string name="no_timetable_msg">Press OK to visit students web and get timetable data.</string>
     <string name="no_timetable_title">Needs timetable data</string>
@@ -11,4 +11,5 @@
     <string name="press_after_login">Press [check] button after finishing login</string>
     <string name="retrieving_timetable">Retrieving timetable</string>
     <string name="extracting_timetable">Extracting timetable</string>
+    <string name="about">About</string>
 </resources>
