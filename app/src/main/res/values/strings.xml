@@ -9,4 +9,6 @@
     <string name="later">LATER</string>
     <string name="need_timetable_to_run">MalangTable needs timetable data to run</string>
     <string name="press_after_login">Press [check] button after finishing login</string>
+    <string name="retrieving_timetable">Retrieving timetable</string>
+    <string name="extracting_timetable">Extracting timetable</string>
 </resources>
