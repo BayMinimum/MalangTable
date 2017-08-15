@@ -100,13 +100,19 @@ class MainActivity : AppCompatActivity() {
                 R.id.period_10,
                 R.id.period_11
         )
+        var i = 0
         rowsArr.map { main_container.findViewById<LinearLayout>(it) }
                 .forEach {
-                    rows.add(arrayOf(it.findViewById(R.id.mon),
+                    if (i < 9) rows.add(arrayOf(it.findViewById(R.id.mon),
                             it.findViewById(R.id.tue),
                             it.findViewById(R.id.wed),
                             it.findViewById(R.id.thu),
                             it.findViewById(R.id.fri)))
+                    else rows.add(arrayOf(it.findViewById(R.id.mon),
+                            it.findViewById(R.id.tue),
+                            it.findViewById(R.id.wed),
+                            it.findViewById(R.id.thu)))
+                    i += 1
                 }
     }
 
