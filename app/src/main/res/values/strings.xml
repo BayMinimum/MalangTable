@@ -2,4 +2,10 @@
     <string name="app_name">MalangTable</string>
     <string name="renew_timetable">Renew Timetable</string>
     <string name="random_color">Random Color</string>
+    <string name="no_timetable_msg">Press OK to visit students web and get timetable data.</string>
+    <string name="no_timetable_title">Needs timetable data</string>
+    <string name="ok">OK</string>
+    <string name="title_activity_download">students.ksa.hs.kr</string>
+    <string name="later">LATER</string>
+    <string name="need_timetable_to_run">MalangTable needs timetable data to run</string>
 </resources>
