@@ -8,4 +8,5 @@
     <string name="title_activity_download">students.ksa.hs.kr</string>
     <string name="later">LATER</string>
     <string name="need_timetable_to_run">MalangTable needs timetable data to run</string>
+    <string name="press_after_login">Press [check] button after finishing login</string>
 </resources>
