@@ -10,9 +10,9 @@ import android.support.v7.app.AlertDialog
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var container: LinearLayout
     var rows: ArrayList<Array<Button>> = ArrayList(0)
     var data: ArrayList<Subject> = ArrayList(0)
     lateinit var mPref: SharedPreferences
@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        container = findViewById<LinearLayout>(R.id.main_container)
         resolveTimetableViews()
 
         mPref = getSharedPreferences(packageName + ".pref", Context.MODE_PRIVATE)
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        if (mPref.getBoolean(CommonConstants.HAS_TIMETABLE, false)) {
+        if (!mPref.getBoolean(CommonConstants.HAS_TIMETABLE, false)) {
             // No timetable saved
             // Prompt to get new one
             val mBuilder = AlertDialog.Builder(this)
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this, R.string.need_timetable_to_run, Toast.LENGTH_LONG).show()
                         finish()
                     })
-                    .setOnDismissListener({
+                    .setOnCancelListener({
                         Toast.makeText(this, R.string.need_timetable_to_run, Toast.LENGTH_LONG).show()
                         finish()
                     })
@@ -93,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.period_10,
                 R.id.period_11
         )
-        rowsArr.map { container.findViewById<Button>(it) }
+        rowsArr.map { main_container.findViewById<LinearLayout>(it) }
                 .forEach {
                     rows.add(arrayOf(it.findViewById(R.id.mon),
                             it.findViewById(R.id.tue),
