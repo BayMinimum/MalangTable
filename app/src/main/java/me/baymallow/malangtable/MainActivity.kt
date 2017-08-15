@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                         mPref.getString(CommonConstants.SUBJECT + i, ";;;;;;"))
                 val btnText = thisSubject.toBtnString()
                 for (classHour in thisSubject.getParsedClassHours()) {
-                    val classBtn = rows[classHour[0]][classHour[1]]
+                    val classBtn = rows[classHour[1]][classHour[0]]
                     classBtn.text = btnText
                     assignColor(classBtn, thisSubject.colorCode)
                     classBtn.setOnClickListener({
@@ -117,7 +117,7 @@ class Subject(val title: String, val place: String, val number: Int, val teacher
     companion object {
         fun parseString(saved: String): Subject {
             val split = saved.split(";")
-            return Subject(split[0], split[1], Integer.parseInt(split[2]), split[3], split[5], Integer.parseInt(split[6]))
+            return Subject(split[0], split[1], Integer.parseInt(split[2]), split[3], split[4], Integer.parseInt(split[5]))
         }
     }
 
