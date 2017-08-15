@@ -27,7 +27,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.baymallow.malangtable.MainActivity" />
         </activity>
-        <activity android:name=".AppInfoActivity"></activity>
+        <activity android:name=".AppInfoActivity"
+            android:label="@string/about"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="me.baymallow.malangtable.MainActivity" /></activity>
     </application>
 
 </manifest>
