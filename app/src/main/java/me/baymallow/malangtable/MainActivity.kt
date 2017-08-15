@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity() {
         resolveTimetableViews()
 
         mPref = getSharedPreferences(packageName + ".pref", Context.MODE_PRIVATE)
+
+        about.setOnClickListener({
+            startActivity(Intent(applicationContext, AppInfoActivity::class.java))
+        })
+
+        renew_timetable.setOnClickListener({
+            gotoDownload()
+        })
     }
 
     override fun onStart() {
