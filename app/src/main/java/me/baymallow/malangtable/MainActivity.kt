@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +34,10 @@ class MainActivity : AppCompatActivity() {
         renew_timetable.setOnClickListener({
             gotoDownload()
         })
+
+        val mAdRequest = AdRequest.Builder().build()
+        main_adview.loadAd(mAdRequest)
+
     }
 
     override fun onStart() {

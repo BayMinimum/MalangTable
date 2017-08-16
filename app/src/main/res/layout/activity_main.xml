@@ -564,9 +564,10 @@
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/main_adview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:adSize="BANNER"
+        app:adSize="SMART_BANNER"
+        app:adUnitId="@string/ad_unit_id_test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
