@@ -44,7 +44,7 @@ class DownloadActivity : AppCompatActivity() {
         download_webview.loadUrl("http://students.ksa.hs.kr")
 
         Snackbar.make(download_fab, R.string.press_after_login, Snackbar.LENGTH_INDEFINITE)
-                .setAction(R.string.ok, {}).show()
+                .show()
 
     }
 
