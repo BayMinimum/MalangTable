@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">말랑말랑 시간표</string>
+    <string name="renew_timetable">시간표 갱신</string>
+    <string name="no_timetable_msg">학사사이트에 접속하여 시간표 정보를 받아오려면 [확인]을 눌러주세요.</string>
+    <string name="no_timetable_title">시간표 정보 필요</string>
+    <string name="ok">확인</string>
+    <string name="later">나중에</string>
+    <string name="need_timetable_to_run">시간표 정보를 받아오지 않으면 실행할 수 없습니다.</string>
+    <string name="press_after_login">로그인 완료 후 [체크] 버튼을 눌러주세요.</string>
+    <string name="retrieving_timetable">시간표를 받아오는 중</string>
+    <string name="extracting_timetable">시간표를 추출하는 중</string>
+    <string name="about">정보</string>
+    <string name="icon_description">아이콘</string>
+    <string name="visit_github">GitHub 저장소 방문하기</string>
+    <string name="about_version">말랑말랑 시간표 v0.7.0</string>
+    <string name="about_license">오픈 소스 라이선스</string>
+    <string name="copyright_open_source">아래는 본 애플리케이션에 사용된 소프트웨어의 목록과 그 라이선스입니다.</string>
+</resources>
