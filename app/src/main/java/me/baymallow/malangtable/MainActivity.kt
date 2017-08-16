@@ -1,5 +1,6 @@
 package me.baymallow.malangtable
 
+import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
@@ -9,9 +10,11 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     var rows: ArrayList<Array<Button>> = ArrayList(0)
@@ -75,8 +78,9 @@ class MainActivity : AppCompatActivity() {
                     val classBtn = rows[classHour[1]][classHour[0]]
                     classBtn.text = btnText
                     assignColor(classBtn, thisSubject.colorCode)
+                    val thisI = i
                     classBtn.setOnClickListener({
-                        onClickRouter(i)
+                        onClickRouter(thisI)
                     })
                 }
                 data.add(thisSubject)
@@ -127,9 +131,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onClickRouter(i: Int) {
-        Toast.makeText(this, data[i].toString(), Toast.LENGTH_SHORT).show()
-        TODO("Create dialog for class info & color setting")
+        val mBuilder = AlertDialog.Builder(this)
+        val mDialogView = layoutInflater.inflate(R.layout.dialog_subject_info, null)
+        val thisSubject = data[i]
+        mDialogView.findViewById<TextView>(R.id.subject_name).text = thisSubject.title
+        mDialogView.findViewById<TextView>(R.id.subject_teacher_value).text = thisSubject.teacher
+        mDialogView.findViewById<TextView>(R.id.subject_class_value).text = Integer.toString(thisSubject.number)
+        mDialogView.findViewById<TextView>(R.id.subject_classroom_value).text = thisSubject.place
+        mBuilder.setView(mDialogView)
+                .setPositiveButton(R.string.ok, { _: DialogInterface, _: Int ->
+
+                })
+                .setNegativeButton(R.string.cancel, { _: DialogInterface, _: Int ->
+
+                })
+        val mDialog = mBuilder.create()
+        mDialog.show()
     }
+
 }
 
 class Subject(val title: String, val place: String, val number: Int, val teacher: String, val classHours: String, val colorCode: Int) {

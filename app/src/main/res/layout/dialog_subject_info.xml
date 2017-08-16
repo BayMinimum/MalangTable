@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/subject_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="8dp"
+        android:textSize="@dimen/dialog_text_large" />
+
+    <TextView
+        android:id="@+id/subject_teacher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/subject_name"
+        android:text="@string/teacher"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subject_teacher_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/subject_teacher"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/subject_teacher" />
+
+    <TextView
+        android:id="@+id/subject_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/subject_teacher_value"
+        android:text="@string/class_number"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subject_class_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/subject_class"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@id/subject_class" />
+
+    <TextView
+        android:id="@+id/subject_classroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/subject_class"
+        android:text="@string/classroom"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/subject_classroom_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/subject_classroom"
+        android:layout_marginLeft="8dp"
+        android:layout_toRightOf="@+id/subject_classroom" />
+
+    <TextView
+        android:id="@+id/subject_change_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/subject_classroom"
+        android:textStyle="bold" />
+
+</RelativeLayout>

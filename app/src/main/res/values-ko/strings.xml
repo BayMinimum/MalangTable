@@ -15,4 +15,8 @@
     <string name="about_version">말랑말랑 시간표 v0.7.0</string>
     <string name="about_license">오픈 소스 라이선스</string>
     <string name="copyright_open_source">아래는 본 애플리케이션에 사용된 소프트웨어의 목록과 그 라이선스입니다.</string>
+    <string name="teacher">선생님</string>
+    <string name="class_number">분반</string>
+    <string name="classroom">교실</string>
+    <string name="cancel">취소</string>
 </resources>
