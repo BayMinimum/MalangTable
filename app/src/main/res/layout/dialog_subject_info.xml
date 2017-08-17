@@ -57,8 +57,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@id/subject_class"
         android:text="@string/classroom"
-        android:textStyle="bold"
-        tools:ignore="" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/subject_classroom_value"
@@ -75,6 +74,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/subject_classroom"
         android:layout_marginRight="4dp"
+        android:layout_marginTop="8dp"
         android:text="@string/background_color"
         android:textStyle="bold" />
 
@@ -82,8 +82,9 @@
         android:id="@+id/color_picker_transparent"
         android:layout_width="@dimen/color_picker_size"
         android:layout_height="@dimen/color_picker_size"
-        android:layout_alignTop="@+id/subject_change_color"
-        android:layout_toRightOf="@+id/subject_change_color"
+        android:layout_alignLeft="@+id/subject_change_color"
+        android:layout_below="@+id/subject_change_color"
+        android:layout_marginTop="4dp"
         android:onClick="onColorPickerClick"
         android:tint="@android:color/darker_gray"
         app:srcCompat="@drawable/ic_background_transparent" />

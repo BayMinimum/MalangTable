@@ -508,7 +508,7 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:text="@string/about"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/action_text_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -557,7 +557,7 @@
                 android:layout_weight="1"
                 android:background="@color/transparent"
                 android:text="@string/renew_timetable"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/action_text_size" />
         </LinearLayout>
 
     </LinearLayout>

@@ -2,9 +2,10 @@
 <resources>
     <dimen name="row_height">0dp</dimen>
     <dimen name="div_height">2dp</dimen>
-    <dimen name="text_size">10sp</dimen>
+    <dimen name="text_size">11sp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="dialog_text_large">20sp</dimen>
     <dimen name="dialog_text_small">12sp</dimen>
-    <dimen name="color_picker_size">20dp</dimen>
+    <dimen name="color_picker_size">24dp</dimen>
+    <dimen name="action_text_size">11dp</dimen>
 </resources>
