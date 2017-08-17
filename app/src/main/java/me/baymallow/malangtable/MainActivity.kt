@@ -14,7 +14,7 @@ import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var rows: ArrayList<Array<Button>> = ArrayList(0)
+    var rows: ArrayList<Array<Button?>> = ArrayList(0)
     var data: ArrayList<Subject> = ArrayList(0)
     lateinit var mPref: SharedPreferences
     private var FIRST_ONSTART = true
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             val btnText = thisSubject.toBtnString()
             for (classHour in thisSubject.getParsedClassHours()) {
                 val classBtn = rows[classHour[1]][classHour[0]]
-                classBtn.text = btnText
+                classBtn!!.text = btnText
                 classBtn.setBackgroundColor(resources.getColor(COLORS[thisSubject.colorCode]))
                 val thisI = i
                 classBtn.setOnClickListener({
@@ -111,18 +111,20 @@ class MainActivity : AppCompatActivity() {
                 R.id.period_10,
                 R.id.period_11
         )
+
+        val daysArr = arrayOf(R.id.mon, R.id.tue, R.id.wed, R.id.thu, R.id.fri)
         var i = 0
-        rowsArr.map { main_container.findViewById<LinearLayout>(it) }
-                .forEach {
-                    if (i < 9) rows.add(arrayOf(it.findViewById(R.id.mon),
-                            it.findViewById(R.id.tue),
-                            it.findViewById(R.id.wed),
-                            it.findViewById(R.id.thu),
-                            it.findViewById(R.id.fri)))
-                    else rows.add(arrayOf(it.findViewById(R.id.mon),
-                            it.findViewById(R.id.tue),
-                            it.findViewById(R.id.wed),
-                            it.findViewById(R.id.thu)))
+        rowsArr.map { main_container.findViewById<LinearLayout>(it) }.forEach { thisRow ->
+            var j = 0
+            val thisRowArr = Array<Button?>(5, { null })
+            daysArr.forEach {
+                if ((j < 4) or (i < 9)) {
+                    val thisBtn = thisRow.findViewById<Button>(it)
+                    thisRowArr[j] = thisBtn
+                }
+                j += 1
+            }
+            rows.add(thisRowArr)
                     i += 1
                 }
     }
