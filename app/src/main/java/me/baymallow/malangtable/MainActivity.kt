@@ -1,26 +1,30 @@
 package me.baymallow.malangtable
 
-import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.google.android.gms.ads.AdRequest
 import kotlinx.android.synthetic.main.activity_main.*
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     var rows: ArrayList<Array<Button>> = ArrayList(0)
     var data: ArrayList<Subject> = ArrayList(0)
     lateinit var mPref: SharedPreferences
     private var FIRST_ONSTART = true
+    var CURRENT_COLOR_CODE = 0
+    lateinit var mDialogView: View
+    lateinit var mHandler: Handler
+
+    val COLORS = arrayOf(R.color.transparent, R.color.red, R.color.pink, R.color.orange, R.color.yellow, R.color.yellow_green, R.color.green, R.color.teal, R.color.light_blue, R.color.blue, R.color.indigo, R.color.purple, R.color.brown, R.color.gray)
+    val COLOR_PICKER_ID = arrayOf(R.id.color_picker_transparent, R.id.color_picker_red, R.id.color_picker_pink, R.id.color_picker_orange, R.id.color_picker_yellow, R.id.color_picker_yellow_green, R.id.color_picker_green, R.id.color_picker_teal, R.id.color_picker_light_blue, R.id.color_picker_blue, R.id.color_picker_indigo, R.id.color_picker_purple, R.id.color_picker_brown, R.id.color_picker_gray)
+    val COLOR_PICKER_CHECK_ID = arrayOf(R.id.color_picker_check_transparent, R.id.color_picker_check_red, R.id.color_picker_check_pink, R.id.color_picker_check_orange, R.id.color_picker_check_yellow, R.id.color_picker_check_yellow_green, R.id.color_picker_check_green, R.id.color_picker_check_teal, R.id.color_picker_check_light_blue, R.id.color_picker_check_blue, R.id.color_picker_check_indigo, R.id.color_picker_check_purple, R.id.color_picker_check_brown, R.id.color_picker_check_gray)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         val mAdRequest = AdRequest.Builder().build()
         main_adview.loadAd(mAdRequest)
 
+        mHandler = Handler()
     }
 
     override fun onStart() {
@@ -68,31 +73,28 @@ class MainActivity : AppCompatActivity() {
         } else if (mPref.getBoolean(CommonConstants.HAS_CHANGED_DATA, true) or FIRST_ONSTART) {
             FIRST_ONSTART = false
             mPref.edit().putBoolean(CommonConstants.HAS_CHANGED_DATA, false).apply()
-            var i = 0
-            val N = mPref.getInt(CommonConstants.NUMBER_OF_SUBJECT, 0)
-            while (i < N) {
-                val thisSubject = Subject.parseString(
-                        mPref.getString(CommonConstants.SUBJECT + i, ";;;;;;"))
-                val btnText = thisSubject.toBtnString()
-                for (classHour in thisSubject.getParsedClassHours()) {
-                    val classBtn = rows[classHour[1]][classHour[0]]
-                    classBtn.text = btnText
-                    assignColor(classBtn, thisSubject.colorCode)
-                    val thisI = i
-                    classBtn.setOnClickListener({
-                        onClickRouter(thisI)
-                    })
-                }
-                data.add(thisSubject)
-                i += 1
-            }
+            updateTimetable()
         }
     }
 
-    private fun assignColor(btn: Button, colorCode: Int) {
-        val colors = CommonConstants.COLORS[colorCode]
-        btn.setBackgroundColor(colors[0])
-        btn.setTextColor(colors[1])
+    fun updateTimetable() {
+        var i = 0
+        val N = mPref.getInt(CommonConstants.NUMBER_OF_SUBJECT, 0)
+        while (i < N) {
+            val thisSubject = Subject.parseString(mPref.getString(CommonConstants.SUBJECT + i, ";;;;;;"))
+            val btnText = thisSubject.toBtnString()
+            for (classHour in thisSubject.getParsedClassHours()) {
+                val classBtn = rows[classHour[1]][classHour[0]]
+                classBtn.text = btnText
+                classBtn.setBackgroundColor(resources.getColor(COLORS[thisSubject.colorCode]))
+                val thisI = i
+                classBtn.setOnClickListener({
+                    onClickRouter(thisI)
+                })
+            }
+            data.add(thisSubject)
+            i += 1
+        }
     }
 
     private fun resolveTimetableViews() {
@@ -132,26 +134,42 @@ class MainActivity : AppCompatActivity() {
 
     fun onClickRouter(i: Int) {
         val mBuilder = AlertDialog.Builder(this)
-        val mDialogView = layoutInflater.inflate(R.layout.dialog_subject_info, null)
+        mDialogView = layoutInflater.inflate(R.layout.dialog_subject_info, null)
         val thisSubject = data[i]
         mDialogView.findViewById<TextView>(R.id.subject_name).text = thisSubject.title
         mDialogView.findViewById<TextView>(R.id.subject_teacher_value).text = thisSubject.teacher
         mDialogView.findViewById<TextView>(R.id.subject_class_value).text = Integer.toString(thisSubject.number)
         mDialogView.findViewById<TextView>(R.id.subject_classroom_value).text = thisSubject.place
+        CURRENT_COLOR_CODE = thisSubject.colorCode
+        mDialogView.findViewById<ImageView>(COLOR_PICKER_CHECK_ID[CURRENT_COLOR_CODE]).visibility = View.VISIBLE
         mBuilder.setView(mDialogView)
                 .setPositiveButton(R.string.ok, { _: DialogInterface, _: Int ->
-
+                    if (CURRENT_COLOR_CODE != thisSubject.colorCode) {
+                        thisSubject.colorCode = CURRENT_COLOR_CODE
+                        mHandler.post {
+                            mPref.edit().putBoolean(CommonConstants.HAS_CHANGED_DATA, true).putString(CommonConstants.SUBJECT + i, thisSubject.toString()).commit()
+                            updateTimetable()
+                        }
+                    }
                 })
                 .setNegativeButton(R.string.cancel, { _: DialogInterface, _: Int ->
-
+                    // do nothing
                 })
         val mDialog = mBuilder.create()
         mDialog.show()
     }
 
+    fun onColorPickerClick(v: View) {
+        val NEW_COLOR_CODE = COLOR_PICKER_ID.indexOf(v.id)
+        if ((CURRENT_COLOR_CODE == NEW_COLOR_CODE) or (NEW_COLOR_CODE == -1)) return
+        mDialogView.findViewById<ImageView>(COLOR_PICKER_CHECK_ID[CURRENT_COLOR_CODE]).visibility = View.INVISIBLE
+        mDialogView.findViewById<ImageView>(COLOR_PICKER_CHECK_ID[NEW_COLOR_CODE]).visibility = View.VISIBLE
+        CURRENT_COLOR_CODE = NEW_COLOR_CODE
+    }
+
 }
 
-class Subject(val title: String, val place: String, val number: Int, val teacher: String, val classHours: String, val colorCode: Int) {
+class Subject(val title: String, val place: String, val number: Int, val teacher: String, val classHours: String, var colorCode: Int) {
     companion object {
         fun parseString(saved: String): Subject {
             val split = saved.split(";")

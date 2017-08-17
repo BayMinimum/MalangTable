@@ -6,4 +6,5 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="dialog_text_large">20sp</dimen>
     <dimen name="dialog_text_small">12sp</dimen>
+    <dimen name="color_picker_size">20dp</dimen>
 </resources>

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:ignore="ContentDescription,RtlHardcoded">
 
     <TextView
         android:id="@+id/subject_name"
@@ -54,7 +57,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@id/subject_class"
         android:text="@string/classroom"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:ignore="" />
 
     <TextView
         android:id="@+id/subject_classroom_value"
@@ -70,6 +74,301 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/subject_classroom"
+        android:layout_marginRight="4dp"
+        android:text="@string/background_color"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/color_picker_transparent"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/subject_change_color"
+        android:layout_toRightOf="@+id/subject_change_color"
+        android:onClick="onColorPickerClick"
+        android:tint="@android:color/darker_gray"
+        app:srcCompat="@drawable/ic_background_transparent" />
+
+    <ImageView
+        android:id="@+id/color_picker_red"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_transparent"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/red"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_pink"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_red"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/pink"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_orange"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_pink"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/orange"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_yellow"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_orange"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/yellow"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_yellow_green"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_yellow"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/yellow_green"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_green"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_yellow_green"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/green"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_teal"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_transparent"
+        android:layout_below="@+id/color_picker_transparent"
+        android:layout_marginTop="4dp"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/teal"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_light_blue"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_teal"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/light_blue"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_blue"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_light_blue"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/blue"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_indigo"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_blue"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/indigo"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_purple"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_indigo"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/purple"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_brown"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_purple"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/brown"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_gray"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:layout_marginLeft="4dp"
+        android:layout_toRightOf="@+id/color_picker_brown"
+        android:onClick="onColorPickerClick"
+        android:tint="@color/gray"
+        app:srcCompat="@drawable/ic_circle" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_transparent"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_transparent"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_red"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_red"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_pink"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_pink"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_orange"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_orange"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_yellow"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_yellow"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_yellow_green"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_yellow_green"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_green"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_green"
+        android:layout_alignTop="@+id/color_picker_transparent"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_teal"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_teal"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_light_blue"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_light_blue"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_blue"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_blue"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_indigo"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_indigo"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_purple"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_purple"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_brown"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_brown"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
+
+    <ImageView
+        android:id="@+id/color_picker_check_gray"
+        android:layout_width="@dimen/color_picker_size"
+        android:layout_height="@dimen/color_picker_size"
+        android:layout_alignLeft="@+id/color_picker_gray"
+        android:layout_alignTop="@+id/color_picker_teal"
+        android:tint="@android:color/primary_text_light"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/ic_check" />
 
 </RelativeLayout>
