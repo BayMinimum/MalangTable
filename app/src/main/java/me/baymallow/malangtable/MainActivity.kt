@@ -141,7 +141,7 @@ class MainActivity : AppCompatActivity() {
         val mBuilder = AlertDialog.Builder(this)
         mDialogView = layoutInflater.inflate(R.layout.dialog_subject_info, null)
         val thisSubject = data[i]
-        mDialogView.findViewById<TextView>(R.id.subject_name).text = thisSubject.title
+        mDialogView.findViewById<EditText>(R.id.subject_name).setText(thisSubject.title)
         mDialogView.findViewById<TextView>(R.id.subject_teacher_value).text = thisSubject.teacher
         mDialogView.findViewById<TextView>(R.id.subject_class_value).text = Integer.toString(thisSubject.number)
         mDialogView.findViewById<TextView>(R.id.subject_classroom_value).text = thisSubject.place
@@ -149,13 +149,21 @@ class MainActivity : AppCompatActivity() {
         mDialogView.findViewById<ImageView>(COLOR_PICKER_CHECK_ID[CURRENT_COLOR_CODE]).visibility = View.VISIBLE
         mBuilder.setView(mDialogView)
                 .setPositiveButton(R.string.ok, { _: DialogInterface, _: Int ->
+                    val subjectNameEdit = mDialogView.findViewById<EditText>(R.id.subject_name).text.toString()
+                    var changedFlag = false
+                    if (subjectNameEdit != thisSubject.title) {
+                        thisSubject.title = subjectNameEdit
+                        changedFlag = true
+                    }
                     if (CURRENT_COLOR_CODE != thisSubject.colorCode) {
                         thisSubject.colorCode = CURRENT_COLOR_CODE
-                        mHandler.post {
-                            mPref.edit().putBoolean(CommonConstants.HAS_CHANGED_DATA, true).putString(CommonConstants.SUBJECT + i, thisSubject.toString()).commit()
-                            updateTimetable()
-                        }
+                        changedFlag = true
                     }
+                    if (changedFlag) mHandler.post {
+                        mPref.edit().putBoolean(CommonConstants.HAS_CHANGED_DATA, true).putString(CommonConstants.SUBJECT + i, thisSubject.toString()).commit()
+                        updateTimetable()
+                    }
+
                 })
                 .setNegativeButton(R.string.cancel, { _: DialogInterface, _: Int ->
                     // do nothing
@@ -174,7 +182,7 @@ class MainActivity : AppCompatActivity() {
 
 }
 
-class Subject(val title: String, val place: String, val number: Int, val teacher: String, val classHours: String, var colorCode: Int) {
+class Subject(var title: String, val place: String, val number: Int, val teacher: String, val classHours: String, var colorCode: Int) {
     companion object {
         fun parseString(saved: String): Subject {
             val split = saved.split(";")

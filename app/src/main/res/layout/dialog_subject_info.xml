@@ -7,13 +7,14 @@
     android:padding="16dp"
     tools:ignore="ContentDescription,RtlHardcoded">
 
-    <TextView
+    <EditText
         android:id="@+id/subject_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="8dp"
+        android:inputType="text"
         android:textSize="@dimen/dialog_text_large" />
 
     <TextView
