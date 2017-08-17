@@ -115,21 +115,21 @@ class MainActivity : AppCompatActivity() {
 
         val daysArr = arrayOf(R.id.mon, R.id.tue, R.id.wed, R.id.thu, R.id.fri)
         var i = 0
-        val nanum = Typeface.createFromAsset(assets, "fonts/NotoSansCJK-Regular.ttc")
+        val typeface = Typeface.createFromAsset(assets, "fonts/NotoSansCJK-Medium.ttc")
         rowsArr.map { main_container.findViewById<LinearLayout>(it) }.forEach { thisRow ->
             var j = 0
             val thisRowArr = Array<Button?>(5, { null })
             daysArr.forEach {
                 if ((j < 4) or (i < 9)) {
                     val thisBtn = thisRow.findViewById<Button>(it)
-                    thisBtn.typeface = nanum
+                    thisBtn.typeface = typeface
                     thisRowArr[j] = thisBtn
                 }
                 j += 1
             }
             rows.add(thisRowArr)
-                    i += 1
-                }
+            i += 1
+        }
     }
 
     private fun gotoDownload() {
