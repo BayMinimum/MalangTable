@@ -448,12 +448,13 @@
                 android:textSize="@dimen/text_size" />
 
             <Button
-                android:id="@id/fri"
+                android:id="@+id/about"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/transparent"
-                android:textSize="@dimen/text_size" />
+                android:text="@string/about"
+                android:textSize="@dimen/action_text_size" />
         </LinearLayout>
 
         <View
@@ -502,12 +503,12 @@
                 android:textSize="@dimen/text_size" />
 
             <Button
-                android:id="@+id/about"
+                android:id="@+id/change_font"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/transparent"
-                android:text="@string/about"
+                android:text="@string/font"
                 android:textSize="@dimen/action_text_size" />
         </LinearLayout>
 

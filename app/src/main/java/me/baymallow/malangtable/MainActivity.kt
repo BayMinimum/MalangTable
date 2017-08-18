@@ -39,6 +39,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, AppInfoActivity::class.java))
         })
 
+        change_font.setOnClickListener({
+            mHandler.post {
+                mPref.edit().putInt(CommonConstants.FONT_CODE, 4 - mPref.getInt(CommonConstants.FONT_CODE, 0)).commit()
+                setTypeface()
+            }
+
+        })
+
         renew_timetable.setOnClickListener({
             gotoDownload()
         })
@@ -115,19 +123,42 @@ class MainActivity : AppCompatActivity() {
 
         val daysArr = arrayOf(R.id.mon, R.id.tue, R.id.wed, R.id.thu, R.id.fri)
         var i = 0
-        val typeface = Typeface.createFromAsset(assets, "fonts/NotoSansCJK-Medium.ttc")
         rowsArr.map { main_container.findViewById<LinearLayout>(it) }.forEach { thisRow ->
             var j = 0
             val thisRowArr = Array<Button?>(5, { null })
             daysArr.forEach {
-                if ((j < 4) or (i < 9)) {
+                if ((j < 4) or (i < 8)) {
                     val thisBtn = thisRow.findViewById<Button>(it)
-                    thisBtn.typeface = typeface
+                    thisBtn.setAllCaps(false)
                     thisRowArr[j] = thisBtn
                 }
                 j += 1
             }
             rows.add(thisRowArr)
+            i += 1
+        }
+    }
+
+    private fun setTypeface() {
+        // Set typeface to timetable
+        // 0: Noto Sans Medium
+        // 4: System Default
+        val typeface = ({
+            when (mPref.getInt(CommonConstants.FONT_CODE, 0)) {
+                0 -> Typeface.createFromAsset(assets, "fonts/NotoSansCJK-Medium.ttc")
+                4 -> Typeface.DEFAULT
+                else -> {
+                    Typeface.DEFAULT
+                }
+            }
+        })()
+        var i = 0
+        rows.forEach {
+            var j = 0
+            it.forEach {
+                if ((j < 4) or (i < 8)) it!!.typeface = typeface
+                j += 1
+            }
             i += 1
         }
     }

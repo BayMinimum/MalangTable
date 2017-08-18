@@ -7,5 +7,5 @@
     <dimen name="dialog_text_large">20sp</dimen>
     <dimen name="dialog_text_small">12sp</dimen>
     <dimen name="color_picker_size">24dp</dimen>
-    <dimen name="action_text_size">11dp</dimen>
+    <dimen name="action_text_size">11sp</dimen>
 </resources>
