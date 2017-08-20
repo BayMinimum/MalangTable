@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         change_font.setOnClickListener({
             mHandler.post {
-                mPref.edit().putInt(CommonConstants.FONT_CODE, 4 - mPref.getInt(CommonConstants.FONT_CODE, 0)).commit()
+                mPref.edit().putInt(CommonConstants.FONT_CODE, 4 - mPref.getInt(CommonConstants.FONT_CODE, 0)).apply()
                 setTypeface()
             }
 
@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             FIRST_ONSTART = false
             mPref.edit().putBoolean(CommonConstants.HAS_CHANGED_DATA, false).apply()
             updateTimetable()
+            setTypeface()
         }
     }
 
@@ -146,9 +147,9 @@ class MainActivity : AppCompatActivity() {
         val typeface = ({
             when (mPref.getInt(CommonConstants.FONT_CODE, 0)) {
                 0 -> Typeface.createFromAsset(assets, "fonts/NotoSansCJK-Medium.ttc")
-                4 -> Typeface.DEFAULT
+                4 -> Typeface.defaultFromStyle(Typeface.NORMAL)
                 else -> {
-                    Typeface.DEFAULT
+                    Typeface.defaultFromStyle(Typeface.NORMAL)
                 }
             }
         })()
